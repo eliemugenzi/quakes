@@ -88,9 +88,17 @@ main .slider .slide {
   display: grid;
   place-content: center;
 }
+main .slider .slide.is-active .logo-container {
+  opacity: 1;
+  transform: translateY(0);
+  transition: 0.5s ease-in-out;
+}
 main .slider .slide .logo-container {
   color: #fff;
   padding: 20px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.5s ease-in-out;
 }
 main .slider .slide .intro {
   color: #fff;

@@ -78,9 +78,20 @@ main {
       display: grid;
       place-content: center;
 
+      &.is-active {
+        .logo-container {
+          opacity: 1;
+          transform: translateY(0);
+          .easeInOut(0.5s);
+        }
+      }
+
       .logo-container {
         color: @white-color;
         padding: 20px;
+        opacity: 0;
+        transform: translateY(30px);
+        .easeInOut(0.5s);
       }
 
       .intro {
