@@ -15,13 +15,14 @@
   place-content: center;
   border-radius: 50%;
   border: 1px solid #000;
+  cursor: pointer;
 }
 .centered-container {
   display: grid;
   place-content: center;
 }
 body {
-  font-family: Segoe UI;
+  font-family: "Montserrat", sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -92,8 +93,13 @@ main .slider .slide .logo-container {
   padding: 20px;
 }
 main .slider .slide .intro {
-  color: #000;
+  color: #fff;
   font-size: 25px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 0.5s ease-out;
 }
 main .slider .slide.flex {
   display: flex;
@@ -151,9 +157,14 @@ main .slider .slide.is-active.flex .slide-part {
   transition: 0.5s ease-out;
   transform: translate3d(0, 0, 0);
 }
+main .slider .slide.is-active .intro {
+  opacity: 1;
+  transform: translateY(0);
+  transition: 0.5s ease-out;
+}
 main .slider .slide:nth-child(1) {
-  background: url(../img/landingpage.png) no-repeat center / cover;
-  color: #000;
+  background: url(https://images.pexels.com/photos/1050082/pexels-photo-1050082.jpeg?auto=compress&cs=tinysrgb&h=350) no-repeat center / cover;
+  color: #fff;
 }
 main .slider .slide:nth-child(2) {
   background: #fff;

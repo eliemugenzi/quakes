@@ -84,8 +84,13 @@ main {
       }
 
       .intro {
-        color: @dark-color;
+        color: @white-color;
         font-size: 25px;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 20px;
+        opacity: 0;
+        transform: translateY(50px);
+        .easeOut(0.5s);
       }
 
       &.flex {
@@ -153,12 +158,19 @@ main {
             transform: translate3d(0, 0, 0);
           }
         }
+
+        .intro {
+          opacity: 1;
+          transform: translateY(0);
+          .easeOut(0.5s);
+        }
       }
 
       &:nth-child(1) {
-        background: url(../img/landingpage.png) no-repeat center/cover;
+        background: url(https://images.pexels.com/photos/1050082/pexels-photo-1050082.jpeg?auto=compress&cs=tinysrgb&h=350)
+          no-repeat center/cover;
         //filter: contrast(30%);
-        color: @dark-color;
+        color: @white-color;
       }
       &:nth-child(2) {
         background: @white-color;
