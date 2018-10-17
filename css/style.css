@@ -36,6 +36,11 @@ nav .wrapper {
   display: flex;
   justify-content: space-around;
 }
+@media only screen and (max-width:480px) {
+  nav .wrapper {
+    margin: auto 10%;
+  }
+}
 nav .wrapper .logo {
   transform: translateX(-50px) translateY(-10px);
 }
