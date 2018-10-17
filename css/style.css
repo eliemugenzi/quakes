@@ -1,0 +1,229 @@
+.dark {
+  background: #000;
+  color: #fff;
+}
+.primary {
+  background: #ff4300;
+  color: #fff;
+}
+.control {
+  background: #fff;
+  color: #000;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-content: center;
+  border-radius: 50%;
+  border: 1px solid #000;
+}
+.centered-container {
+  display: grid;
+  place-content: center;
+}
+body {
+  font-family: Segoe UI;
+  margin: 0;
+  padding: 0;
+}
+nav {
+  width: 100%;
+  margin-top: 20px;
+  margin-right: 10%;
+  z-index: 1000;
+}
+nav .wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+nav .wrapper .logo {
+  transform: translateX(-50px) translateY(-10px);
+}
+nav .wrapper .toggle {
+  transform: translateX(50px) translateY(20px);
+}
+nav .wrapper .toggle.hovered {
+  cursor: pointer;
+}
+nav .wrapper .toggle.hovered .line:nth-child(1) {
+  transform: translateX(10px);
+  transition: 0.5s ease-out;
+}
+nav .wrapper .toggle.hovered .line:nth-child(2) {
+  transform: translateX(-10px);
+  transition: 0.5s ease-out;
+}
+nav .wrapper .toggle.active .line:nth-child(1) {
+  transform: translate(6px, 7px) rotate(45deg);
+  transition: 0.5s ease-out;
+}
+nav .wrapper .toggle.active .line:nth-child(2) {
+  transform: translate(6px, -7px) rotate(-45deg);
+  transition: 0.5s ease-out;
+}
+nav .wrapper .toggle .line {
+  background: #000;
+  width: 35px;
+  height: 3px;
+  margin-bottom: 10px;
+  transition: 0.5s ease-out;
+}
+main {
+  width: 100vw;
+  position: relative;
+  margin-top: 20px;
+  margin-right: 10%;
+}
+main .slider {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+}
+main .slider .slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  display: grid;
+  place-content: center;
+}
+main .slider .slide .logo-container {
+  color: #fff;
+  padding: 20px;
+}
+main .slider .slide .intro {
+  color: #000;
+  font-size: 25px;
+}
+main .slider .slide.flex {
+  display: flex;
+}
+main .slider .slide.flex .slide-part {
+  flex-basis: 50%;
+}
+main .slider .slide.flex .slide-part .header {
+  padding: 15px;
+  margin: 10px auto;
+  height: 50%;
+}
+main .slider .slide.flex .slide-part .product-img {
+  position: relative;
+  width: 100%;
+  height: 50%;
+}
+main .slider .slide.flex .slide-part .product-img img {
+  width: 100%;
+  height: 100%;
+}
+main .slider .slide.flex .slide-part.full-img img {
+  width: 100%;
+  height: 100%;
+}
+main .slider .slide.flex .slide-part:nth-child(1) {
+  transform: translate3d(-100%, 0, 0);
+}
+main .slider .slide.flex .slide-part:nth-child(2) {
+  transform: translate3d(100%, 0, 0);
+}
+main .slider .slide.flex .slide-part .wrapper {
+  padding: 20px;
+}
+main .slider .slide.flex .slide-part .desc-img {
+  height: 50%;
+}
+main .slider .slide.flex .slide-part .desc-img img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+main .slider .slide.flex .slide-part .desc-info {
+  background: #fff;
+  display: grid;
+  place-content: center;
+  position: relative;
+  width: 100%;
+  height: 50%;
+}
+main .slider .slide.is-active {
+  z-index: 1;
+}
+main .slider .slide.is-active.flex .slide-part {
+  transition: 0.5s ease-out;
+  transform: translate3d(0, 0, 0);
+}
+main .slider .slide:nth-child(1) {
+  background: url(../img/landingpage.png) no-repeat center / cover;
+  color: #000;
+}
+main .slider .slide:nth-child(2) {
+  background: #fff;
+}
+main .slider .slide:nth-child(3) {
+  background: #fff;
+}
+main .slider .slide:nth-child(4) {
+  background: #000;
+  display: grid;
+  place-content: center;
+}
+.slider-controls {
+  position: fixed;
+  bottom: 10%;
+  right: 50%;
+  z-index: 15;
+  display: flex;
+}
+.slider-controls .control {
+  margin-right: 20px;
+}
+.nav-menu {
+  position: fixed;
+  background: #fff;
+  z-index: 800;
+  width: 100vw;
+  height: 0;
+  overflow: hidden;
+  display: grid;
+  place-content: center;
+  transition: 0.5s ease-in-out;
+}
+.nav-menu.open {
+  height: 100vh;
+  transition: 0.5s ease-in-out;
+}
+.nav-menu.open ul li {
+  opacity: 1;
+  transform: translateX(0);
+  transition: 1.5s ease-out;
+}
+.nav-menu.open ul li:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.nav-menu.open ul li:nth-child(2) {
+  transition-delay: 0.4s;
+}
+.nav-menu.open ul li:nth-child(3) {
+  transition-delay: 0.7s;
+}
+.nav-menu.open ul li:nth-child(4) {
+  transition-delay: 1s;
+}
+.nav-menu ul {
+  list-style: none;
+}
+.nav-menu ul li {
+  margin-bottom: 15px;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: 1.5s ease-out;
+}
+.nav-menu ul li a {
+  text-decoration: none;
+  color: #000;
+  transition: 0.5s ease-out;
+  font-size: 40px;
+}
+.nav-menu ul li a:hover {
+  color: #ff4300;
+  transition: 0.5s ease-out;
+}

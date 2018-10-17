@@ -1,0 +1,244 @@
+@import "utilities";
+@import "mixins";
+
+body {
+  font-family: @font-family;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  width: 100%;
+  margin-top: 20px;
+  margin-right: 10%;
+  z-index: 1000;
+
+  .wrapper {
+    display: flex;
+    justify-content: space-around;
+
+    .logo {
+      transform: translateX(-50px) translateY(-10px);
+    }
+    .toggle {
+      transform: translateX(50px) translateY(20px);
+
+      &.hovered {
+        cursor: pointer;
+        .line {
+          &:nth-child(1) {
+            transform: translateX(10px);
+            .easeOut(0.5s);
+          }
+          &:nth-child(2) {
+            transform: translateX(-10px);
+            .easeOut(0.5s);
+          }
+        }
+      }
+
+      &.active {
+        .line {
+          &:nth-child(1) {
+            transform: translate(6px, 7px) rotate(45deg);
+            .easeOut(0.5s);
+          }
+          &:nth-child(2) {
+            transform: translate(6px, -7px) rotate(-45deg);
+            .easeOut(0.5s);
+          }
+        }
+      }
+      .line {
+        background: @dark-color;
+        width: 35px;
+        height: 3px;
+        margin-bottom: 10px;
+        .easeOut(0.5s);
+      }
+    }
+  }
+}
+
+main {
+  width: 100vw;
+  position: relative;
+  margin-top: 20px;
+  margin-right: 10%;
+  .slider {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      display: grid;
+      place-content: center;
+
+      .logo-container {
+        color: @white-color;
+        padding: 20px;
+      }
+
+      .intro {
+        color: @dark-color;
+        font-size: 25px;
+      }
+
+      &.flex {
+        display: flex;
+
+        .slide-part {
+          flex-basis: 50%;
+          .header {
+            padding: 15px;
+            margin: 10px auto;
+            height: 50%;
+          }
+          .product-img {
+            position: relative;
+            width: 100%;
+            height: 50%;
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+
+          &.full-img {
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+
+          &:nth-child(1) {
+            transform: translate3d(-100%, 0, 0);
+          }
+          &:nth-child(2) {
+            transform: translate3d(100%, 0, 0);
+          }
+
+          .wrapper {
+            padding: 20px;
+          }
+          .desc-img {
+            height: 50%;
+            img {
+              position: relative;
+              width: 100%;
+              height: 100%;
+            }
+          }
+          .desc-info {
+            background: @white-color;
+            display: grid;
+            place-content: center;
+            position: relative;
+            width: 100%;
+            height: 50%;
+          }
+        }
+      }
+
+      &.is-active {
+        z-index: 1;
+
+        &.flex {
+          .slide-part {
+            .easeOut(0.5s);
+            transform: translate3d(0, 0, 0);
+          }
+        }
+      }
+
+      &:nth-child(1) {
+        background: url(../img/landingpage.png) no-repeat center/cover;
+        //filter: contrast(30%);
+        color: @dark-color;
+      }
+      &:nth-child(2) {
+        background: @white-color;
+      }
+      &:nth-child(3) {
+        background: @white-color;
+      }
+      &:nth-child(4) {
+        background: @dark-color;
+        display: grid;
+        place-content: center;
+      }
+    }
+  }
+}
+
+.slider-controls {
+  position: fixed;
+  bottom: 10%;
+  right: 50%;
+  z-index: 15;
+  display: flex;
+  .control {
+    margin-right: 20px;
+  }
+}
+
+.nav-menu {
+  position: fixed;
+  background: @white-color;
+  z-index: 800;
+  width: 100vw;
+  height: 0;
+  overflow: hidden;
+  display: grid;
+  place-content: center;
+  .easeInOut(0.5s);
+
+  &.open {
+    height: 100vh;
+    .easeInOut(0.5s);
+
+    ul {
+      li {
+        opacity: 1;
+        transform: translateX(0);
+        .easeOut(1.5s);
+        &:nth-child(1) {
+          .transDelay(0.1s);
+        }
+        &:nth-child(2) {
+          .transDelay(0.4s);
+        }
+        &:nth-child(3) {
+          .transDelay(0.7s);
+        }
+        &:nth-child(4) {
+          .transDelay(1s);
+        }
+      }
+    }
+  }
+
+  ul {
+    list-style: none;
+    li {
+      margin-bottom: 15px;
+      opacity: 0;
+      transform: translateX(100%);
+      .easeOut(1.5s);
+      a {
+        text-decoration: none;
+        color: @dark-color;
+        .easeOut(0.5s);
+        font-size: 40px;
+        &:hover {
+          color: @primary-color;
+          .easeOut(0.5s);
+        }
+      }
+    }
+  }
+}
